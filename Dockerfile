@@ -2,7 +2,7 @@ FROM leeonky/rvm
 
 USER $USER_NAME
 
-RUN sudo yum install -y nodejs redis && \
+RUN sudo yum install -y nodejs redis && sudo yum clean all && \
 	sudo mkdir -p /usr/local/var/db/redis/ && \
 	sudo chown $USER_NAME:$USER_NAME /usr/local/var/db/redis/ -R
 
@@ -21,7 +21,7 @@ RUN sudo yum install -y \
 	libwmf-lite \
 	freetype-devel \
 	libXt-devel \
-	fftw3 && \
+	fftw3 && sudo yum clean all && \
 	sudo rpm -ivh https://github.com/leeonky/tools_dev/raw/master/ImageMagick-libs-6.9.6-5.x86_64.rpm && \
 	sudo rpm -ivh https://github.com/leeonky/tools_dev/raw/master/ImageMagick-6.9.6-5.x86_64.rpm && \
 	sudo rpm -ivh https://github.com/leeonky/tools_dev/raw/master/ImageMagick-devel-6.9.6-5.x86_64.rpm
