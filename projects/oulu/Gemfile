@@ -39,13 +39,15 @@ gem 'activemodel'
 # gem 'draper'
 gem 'mailgun-ruby', '~>1.1.4'
 
+gem 'aliyun-cloud_sms', :git => 'https://github.com/jerecui/aliyun-cloud_sms'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.6' #bootstrap
 gem 'bootstrap_form'
 
 # queue
-gem 'sidekiq'
+gem 'sidekiq', '<5.0'
 gem 'redis-namespace'
 gem 'redis' # Use Redis adapter to run Action Cable in production
 # gem 'sinatra', '2.0.0.beta2'
@@ -187,6 +189,8 @@ end
 group :staging, :production do
   gem 'pg'
 end
+
+gem 'draper'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

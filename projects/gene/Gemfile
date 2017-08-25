@@ -11,7 +11,7 @@ gem 'slim-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
-gem 'less-rails'
+gem 'less-rails', :git => "https://github.com/brendon/less-rails", :branch => 'fix-sprockets-loading'
 gem 'sprockets'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -124,6 +124,9 @@ gem "colorize"
 
 # api documentation
 gem 'apipie-rails'
+
+# aliyun sms
+gem 'aliyun-cloud_sms', :git => 'https://github.com/jerecui/aliyun-cloud_sms'
 
 group :production do
   # Use Unicorn as the app server
