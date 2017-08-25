@@ -2,7 +2,7 @@ FROM leeonky/rvm
 
 USER $USER_NAME
 
-RUN rpm -ivh https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm && \
+RUN sudo rpm -ivh https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm && \
 	sudo yum install -y nodejs redis && sudo yum clean all && \
 	sudo mkdir -p /usr/local/var/db/redis/ && \
 	sudo chown $USER_NAME:$USER_NAME /usr/local/var/db/redis/ -R
