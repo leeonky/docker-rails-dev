@@ -40,7 +40,7 @@ function set_default_ruby_rails_ver() {
 function process_project() {
 	local path=$1
 	pushd "$path"
-		exec_cmd rvm install $(cat .ruby-version)
+		exec_cmd rvm install $(cat .ruby-version) --disable-binary
 	popd
 	pushd "$path"
 		#if [ -f Gemfile.lock ]; then

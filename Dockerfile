@@ -1,39 +1,21 @@
-FROM leeonky/rvm
+FROM leeonky/rvm:ubuntu
 
 USER $USER_NAME
 
-RUN sudo rpm -ivh https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm && \
-	sudo yum install -y nodejs redis && sudo yum clean all && \
-	sudo mkdir -p /usr/local/var/db/redis/ && \
-	sudo chown $USER_NAME:$USER_NAME /usr/local/var/db/redis/ -R
+#RUN sudo rpm -ivh https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm
 
-RUN sudo yum install -y \
-	OpenEXR-devel \
-	bzip2-devel \
-	ghostscript-devel \
-	jasper-devel \
-	lcms2-devel \
-	libjpeg-devel \
-	libtiff-devel \
-	libwebp-devel \
-	libcroco \
-	librsvg2 \
-	libtool-ltdl \
-	libwmf-lite \
-	freetype-devel \
-	libXt-devel \
-	fftw3 && sudo yum clean all && \
-	sudo rpm -ivh https://github.com/leeonky/tools_dev/raw/master/ImageMagick-libs-6.9.6-5.x86_64.rpm && \
-	sudo rpm -ivh https://github.com/leeonky/tools_dev/raw/master/ImageMagick-6.9.6-5.x86_64.rpm && \
-	sudo rpm -ivh https://github.com/leeonky/tools_dev/raw/master/ImageMagick-devel-6.9.6-5.x86_64.rpm
+RUN sudo apt-get install -y imagemagick libmagickwand-dev redis-server nodejs
+
+#install ruby in china
+RUN echo "ruby_url=https://cache.ruby-china.org/pub/ruby" > ~/.rvm/user/db
 
 ADD projects /tmp/projects
 ADD setup_project.sh /tmp/setup_project.sh
 
 RUN sudo chown $USER_NAME:$USER_NAME /tmp/projects -R
-RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/default
 RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/gene
-RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/oulu
-RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/ule-web
+#RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/oulu
+#RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/ule-web
+RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/default
 
 CMD bash

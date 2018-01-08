@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.8'
@@ -11,7 +11,7 @@ gem 'slim-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
-gem 'less-rails', :git => "https://github.com/brendon/less-rails", :branch => 'fix-sprockets-loading'
+gem 'less-rails'
 gem 'sprockets'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -43,10 +43,11 @@ gem 'therubyracer', platforms: :ruby
 gem "default_value_for"
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
-# track model data changes
+# teack model data changes
 gem 'paper_trail'
 # log action
 gem 'impressionist'
+gem 'exception-track'
 
 gem 'wisper'
 gem 'wisper-activerecord'
@@ -59,6 +60,8 @@ gem 'ancestry'
 gem 'wechat'
 gem 'wx_pay'
 gem 'weui-rails'
+
+gem 'alipay', '~> 0.15.0'
 
 # Generic hooks with callbacks for Ruby.
 gem 'hooks'
@@ -115,6 +118,8 @@ gem 'activejob-retry'
 
 gem 'redis-namespace'
 gem 'redis'
+gem 'redis-rails'
+gem 'redis-rack-cache'
 
 # ping plus plus 第三方支付
 gem 'pingpp'
@@ -125,8 +130,12 @@ gem "colorize"
 # api documentation
 gem 'apipie-rails'
 
+gem 'pghero'
+
 # aliyun sms
 gem 'aliyun-cloud_sms', :git => 'https://github.com/jerecui/aliyun-cloud_sms'
+
+gem 'ransack'
 
 group :production do
   # Use Unicorn as the app server
