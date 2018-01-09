@@ -40,7 +40,7 @@ GIT
       uuidtools (~> 2.1)
 
 GEM
-  remote: https://gems.ruby-china.org
+  remote: https://rubygems.org
   specs:
     GB2260 (0.2.1)
     actionmailer (4.2.9)
