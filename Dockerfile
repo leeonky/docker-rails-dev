@@ -15,7 +15,7 @@ RUN sudo apt-get install -y imagemagick libmagickwand-dev nodejs npm && \
 	rm -rf redis-3.2.11*
 
 #install ruby in china
-#RUN echo "ruby_url=https://cache.ruby-china.org/pub/ruby" > ~/.rvm/user/db
+RUN echo "ruby_url=https://cache.ruby-china.org/pub/ruby" > ~/.rvm/user/db
 
 ADD projects /tmp/projects
 ADD setup_project.sh /tmp/setup_project.sh
