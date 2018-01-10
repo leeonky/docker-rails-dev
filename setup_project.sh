@@ -40,6 +40,7 @@ function set_default_ruby_rails_ver() {
 function process_project() {
 	local path=$1
 	pushd "$path"
+		[ -f ./setup.sh ] && exec_cmd ./setup.sh
 		exec_cmd rvm install $(cat .ruby-version) --disable-binary
 	popd
 	pushd "$path"
