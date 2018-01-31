@@ -4,9 +4,9 @@ USER $USER_NAME
 
 #RUN sudo rpm -ivh https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm
 
-RUN sudo apt-get install -y imagemagick libmagickwand-dev nodejs npm && \
+RUN sudo apt-get update && sudo apt-get install -y imagemagick libmagickwand-dev nodejs npm && \
 	cd /tmp && \
-	wget http://download.redis.io/releases/redis-3.2.11.tar.gz && \
+	wget https://gitee.com/leeonky/tools_dev/raw/master/redis-3.2.11.tar.gz && \
 	tar xzf redis-3.2.11.tar.gz && \
 	cd redis-3.2.11/ && \
 	make -j4 && \
