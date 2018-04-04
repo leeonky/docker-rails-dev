@@ -55,6 +55,7 @@ function process_project() {
 			#install_rails_by_gemfile
 		#fi
 		exec_cmd gem install bundle
+		bundle config mirror.https://rubygems.org https://ruby.taobao.org
 		exec_cmd bundle install
 		set_default_ruby_rails_ver
 	popd
